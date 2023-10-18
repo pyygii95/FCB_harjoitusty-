@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="index.html">
+        <img src="barcelona-logo.png" alt="FC Barcelona Logo" width="150" height="150">
+      </a>
+    <h1>Update player</h1>
+    <form class="custom-form1" action="/newPlayer" method="post">
+        <label for="name">Name<input type="text" name="name" id="name" required></label>
+        <label for="dob">Date of Birth<input type="date" name="dob" id="dob"></label>
+        <label for="nationality">Nationality<input type="text" name="nationality" id="nationality"></label>
+        <label for="height">Height (in cm)<input type="number" name="height" id="height"></label>
+        <label for="position">Position<input type="text" name="position" id="position"></label>
+        <label for="number">Number<input type="number" name="number" id="number"></label>
+        <label for="goals">Goals Scored<input type="number" name="goals" id="goals"></label>
+        <label for="injured">Injured<input type="boolean" name="injured" id="injured"></label>
+        <input type="submit" value="Update">
+    </form>
+    <script src="update.js" async defer></script>
+    <script src="front.js" async defer></script>
+</body>
+</html>
