@@ -38,39 +38,38 @@ app.post('/newPlayer', function (req, res) { // Change '/newBook' to '/newPlayer
     res.send('Player is added with following data: ' + JSON.stringify(req.body));
 });
 
-app.post('/deletePlayer', function (req, res) { // Change '/deleteBook' to '/deletePlayer'
-    db.collection('players').deleteOne({ _id: new mongodb.ObjectId(req.body._id) }, function (err, result) { // Change 'books' to 'players'
+app.post('/deletePlayer', function (req, res) {
+    db.collection('players').deleteOne({ _id: new mongodb.ObjectId(req.body._id)}, function (err, result) {
         if (err) {
-            res.send('Error deleting with following data: ' + err);
+            res.send('Error deleting with the following data: ' + err);
         } else {
-            res.send('Player is deleted with following id: ' + req.body._id);
+            res.send('Player is deleted with the following id: ' + req.body._id);
+            
         }
     });
-   
-})
-    app.post('/updatePlayer', function (req, res) {
-        db.collection('players').updateOne(
-            { _id: new mongodb.ObjectId(req.body._id) },
-            {
-                $set: {
-                    name: req.body.name,
-                    dob: req.body.dob,
-                    nationality: req.body.nationality,
-                    height: req.body.height,
-                    position: req.body.position,
-                    number: req.body.number,
-                    goals: req.body.goals,
-                    injured: req.body.injured
-                }
-            },
-            function (err, result) {
-                if (err) {
-                    res.send('Error updating: ' + err);
-                } else {
-                    res.send('Player is updated with following id: ' + req.body._id + ' and following data: ' + JSON.stringify(req.body));
-                }
-            });
-           
-        })
+});
+app.post('/updatePlayer', function(req, res) {
+    // Update a document in the 'players' collection. Three parameters: ID, what to update, and error handling and response function.
+    db.collection('players').updateOne(
+        { _id: new mongodb.ObjectId(req.body._id) },
+        {$set: {
+                name: req.body.name,
+                nationality: req.body.nationality,
+                height: req.body.height,
+                position: req.body.position,
+                number: req.body.number,
+                goals: req.body.goals,
+                injured: req.body.injured
+            }
+        }),
+        function(err, results) {
+            if (err) {
+                res.send('Error updating: ' + err);
+            } else {
+                res.send('Player is updated with the following id: ' + req.body._id + ' and the following data: ' + JSON.stringify(req.body));
+            }
+        }
+    });
 
-        const server = app.listen(8080, function(){})
+
+    const server = app.listen(8080, function(){})

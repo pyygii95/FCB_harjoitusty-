@@ -1,2 +1,1 @@
-# FCB_harjoitusty-
-FC_Barcelona_2023_2024
+// Tällä sivustolla näät FC Barceloonan maalintekijät kaudelle 2023-2024. Sivustolta selviää myös näiden maalintekijöiden koko nimi, kansallisuus, pituus, pelinumero, maalimäärä ja onko pelaaja loukkantuneena vai ei. Data tuodaan sivustolle MongoDb tietokannasta käyttäen javascriptiä ja 

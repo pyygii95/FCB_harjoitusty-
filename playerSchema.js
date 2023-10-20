@@ -7,9 +7,7 @@ let player = new playerSchema({
   name: {
     type: String,
   },
-  dob: {
-    type: Date, 
-  },
+ 
   nationality: {
     type: String,
   },

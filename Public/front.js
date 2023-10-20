@@ -10,8 +10,8 @@ function readPlayers() {
 
       for (let i = 0; i < players.length; i++) {
         let newRow = document.createElement('tr');
+        
         newRow.appendChild(createCell(players[i].name));
-        newRow.appendChild(createCell(players[i].dob));
         newRow.appendChild(createCell(players[i].nationality));
         newRow.appendChild(createCell(players[i].height));
         newRow.appendChild(createCell(players[i].position));
@@ -61,11 +61,7 @@ function createForm(player, action) {
   input.name = 'name';
   form.appendChild(input);
 
-  input = document.createElement('input');
-  input.value = player.dob;
-  input.type = 'hidden';
-  input.name = 'dob';
-  form.appendChild(input);
+
 
   input = document.createElement('input');
   input.value = player.nationality;
