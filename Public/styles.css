@@ -50,22 +50,21 @@ h1 {
     
 }
 
-/* Define FC Barcelona Colors */
+
 :root {
     --barcelona-blue: #004D98;
     --barcelona-red: #A50044;
     --barcelona-gold: #FFCD00;
 }
 
-/* Apply Styles to the Table */
+
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid var(--barcelona-blue); /* Blue border for the table */
-    margin-bottom: 20px;
+    border: 2px solid var(--barcelona-blue); 
 }
 
-/* Apply Styles to Table Headers (th) */
+
 th {
     background-color: var(--barcelona-blue);
     color: white;
@@ -74,14 +73,14 @@ th {
     font-weight: bold;
 }
 
-/* Apply Styles to Table Data Cells (td) */
+
 td {
     padding: 10px;
     border: 1px solid var(--barcelona-blue);
     text-align: center;
 }
 
-/* Alternating Row Styles */
+
 tr:nth-child(even) {
     background-color: var(--barcelona-gold);
     font-weight: bold;
@@ -106,18 +105,18 @@ a {
   }
 
   .custom-form {
-        background-color: #D50032; /* FC Barcelona Red */
+        background-color: #D50032; 
         padding: 20px 0px;
         border-radius: 15px;
         width: 600px;
         text-align: center;
         margin: 0 auto;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
     }
     
     label {
         display: block;
-        color: #FFFFFF; /* White text color */
+        color: #FFFFFF; 
         font-weight: bold;
         padding: 10px;
         border: 10;
@@ -127,7 +126,7 @@ a {
     
     input[type="submit"] {
         
-        background-color: #004D98; /* FC Barcelona Blue */
+        background-color: #004D98; 
         color: #FFFFFF;
         padding: 10px 10px;
        border-top: 10px;
@@ -139,16 +138,16 @@ a {
     }
     
     input[type="submit"]:hover {
-        background-color: #D50032; /* FC Barcelona Red */
+        background-color: #D50032; 
         text-align: center;
        
         
     }
 
     .new-player-link {
-        color: blue; /* Change the link color to blue */
-        text-decoration: none; /* Remove the underline from the link */
-        font-weight: bold; /* Make the text bold */
+        color: blue; 
+        text-decoration: none; 
+        font-weight: bold; 
         text-align: center;
         margin-left: 723px;
         padding-top: 110px;
@@ -160,13 +159,13 @@ h2 {
 
 }
 .custom-form1 {
-    background-color: #D50032; /* FC Barcelona Red */
+    background-color: #D50032; 
     padding: 20px 0px;
     border-radius: 15px;
     width: 600px;
     text-align: center;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
 
 }
 

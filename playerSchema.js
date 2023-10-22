@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+//otetaan Mongoose käyttöön
 const playerSchema = mongoose.Schema;
 
 let player = new playerSchema({
@@ -28,5 +28,5 @@ let player = new playerSchema({
   }
 },
 { collection: 'players' });
-
+// Export model
 module.exports = mongoose.model('players', player);

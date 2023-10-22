@@ -1,28 +1,35 @@
+// Luodaan tietokantayhteys mongoosen avulla
 const mongoose = require('mongoose');
 
+// Otetaan express käyttöön
 const express = require('express');
-
 const app = express();
 
-const player = require('./playerSchema.js'); // Change bookSchema to playerSchema
+//otetaan players käyttöön
+const player = require('./playerSchema.js'); 
 
+//otetaan bodyparser käyttöön lomakkeen käsittelyä varten
 const bodyparser = require('body-parser');
 
 const mongodb = require('mongodb');
 
+// Asetetaan määritykset express-palvelimelle
+//Otetaan käyttöön public-tiedosto
 app.use(express.static('public'));
 app.use(bodyparser.urlencoded({ extended:false }));
 
+// Luodaan vakio connectionstringille
 const uri = 'mongodb+srv://pyge:barcelona@cluster0.gifxn3m.mongodb.net/playerDb?retryWrites=true&w=majority'; // Change the database name
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
-
+// Muodostetaan yhteys tietokantaan
 const db = mongoose.connection;
 db.once('open', function () {
     console.log('Tietokantayhteys avattu');
 });
-
-app.get('/players', function (req, res) { // Change '/books' to '/players'
-    player.find(req.query, function (err, result) { // Change 'book' to 'player'
+// Pelaajan lisäys post-funktio
+app.get('/players', function (req, res) { 
+    //// Haetaan pelaajat tietokannasta
+    player.find(req.query, function (err, result) { 
         if (err) {
             res.send(err);
         } else {
@@ -30,11 +37,11 @@ app.get('/players', function (req, res) { // Change '/books' to '/players'
         }
     });
 });
-
-app.post('/newPlayer', function (req, res) { // Change '/newBook' to '/newPlayer'
+// Poistofunktio
+app.post('/newPlayer', function (req, res) { 
     delete req.body._id;
-
-    db.collection('players').insertOne(req.body); // Change 'books' to 'players'
+//Poistetaan collectionista kirja
+    db.collection('players').insertOne(req.body); 
     res.send('Player is added with following data: ' + JSON.stringify(req.body));
 });
 
@@ -48,8 +55,10 @@ app.post('/deletePlayer', function (req, res) {
         }
     });
 });
+
+// Päivitysfunktio, (EI TOIMI)
 app.post('/updatePlayer', function(req, res) {
-    // Update a document in the 'players' collection. Three parameters: ID, what to update, and error handling and response function.
+    
     db.collection('players').updateOne(
         { _id: new mongodb.ObjectId(req.body._id) },
         {$set: {
@@ -71,5 +80,7 @@ app.post('/updatePlayer', function(req, res) {
         }
     });
 
-
+    // Laitetaan palvelin kuuntelemaan porttia 8080
     const server = app.listen(8080, function(){})
+    
+    //Selaimessa localhost:8080/players
