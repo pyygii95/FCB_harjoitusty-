@@ -19,13 +19,14 @@ app.use(express.static('public'));
 app.use(bodyparser.urlencoded({ extended:false }));
 
 // Luodaan vakio connectionstringille
-const uri = 'mongodb+srv://pyge:barcelona@cluster0.gifxn3m.mongodb.net/playerDb?retryWrites=true&w=majority'; // Change the database name
+const uri = 'mongodb+srv://pyge:barcelona@cluster0.gifxn3m.mongodb.net/userdb?retryWrites=true&w=majority'; // Change the database name
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 // Muodostetaan yhteys tietokantaan
 const db = mongoose.connection;
 db.once('open', function () {
     console.log('Tietokantayhteys avattu');
 });
+
 // Pelaajan lisäys post-funktio
 app.get('/players', function (req, res) { 
     //// Haetaan pelaajat tietokannasta
@@ -79,7 +80,6 @@ app.post('/updatePlayer', function(req, res) {
             }
         }
     });
-
     // Laitetaan palvelin kuuntelemaan porttia 8080
     const server = app.listen(8080, function(){})
     
